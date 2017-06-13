@@ -1,0 +1,7 @@
+node_modules/
+*.log
+coverage/
+.idea*
+.DS_Store*
+build/assets/
+build/bundle.js
