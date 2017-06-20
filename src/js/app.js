@@ -5,7 +5,7 @@ import ReactDOM from 'react-dom';
 import AppContainer from './components/AppContainer';
 
 const init = () => {
-    ReactDOM.render(
+  ReactDOM.render(
       <AppContainer />,
       document.querySelector('#app'), () => {
         // module initializations if needed
