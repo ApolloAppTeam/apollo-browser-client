@@ -1,12 +1,17 @@
-
-import '../scss/app.scss';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+
 import AppContainer from './components/AppContainer';
+import store from './redux/store';
+
+import '../scss/app.scss';
 
 const init = () => {
   ReactDOM.render(
-      <AppContainer />,
+      <Provider store={store}>
+        <AppContainer />
+      </Provider>,
       document.querySelector('#app'), () => {
         // module initializations if needed
       }

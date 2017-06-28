@@ -1,29 +1,41 @@
-
 import React from 'react';
-import NavComponent from "./NavComponent";
-import LoginComponent from "./login/LoginComponent";
+import { connect } from 'react-redux';
 
-// test class to make sure react is working
+import LoginComponent from './login/LoginComponent';
+import NavComponent from './NavComponent';
+
+import { toggleSignup } from '../redux/actions/toggleActions';
+
+// connect - decorator that slices off parts of the store
+// and injects into the component as props
+// whatever is returned from the first function becomes props
+@connect((store) => {
+  return {
+    signup: store.toggle.signup
+  }
+})
 class AppContainer extends React.Component {
 
   constructor() {
     super();
-
-    this.testClick = this.testClick.bind(this);
+    this.register = this.register.bind(this);
   }
 
-  testClick() {
-    console.log('test');
-  }
-
-  // render Home page
   render() {
     return (
       <div className="app">
-        <NavComponent />
-        <LoginComponent/>
+        <NavComponent signup={this.props.signup} register={this.register} />
+        <LoginComponent signup={this.props.signup} />
       </div>
     );
+  }
+
+  /**
+   * handle click of register button. dispatches toggle action
+   * to visually change state between login and sign up pages
+   */
+  register() {
+    this.props.dispatch(toggleSignup());
   }
 }
 
