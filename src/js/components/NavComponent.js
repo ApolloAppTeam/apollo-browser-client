@@ -1,7 +1,11 @@
-
 import React from 'react';
+import { connect } from 'react-redux';
 
-// test class to make sure react is working
+@connect((store) => {
+  return {
+    loggedIn: store.session.loggedIn
+  }
+})
 class NavComponent extends React.Component {
 
   constructor() {
@@ -10,7 +14,8 @@ class NavComponent extends React.Component {
 
   // render Home page
   render() {
-    const navLink = this.props.signup ? 'Log In' : 'Register';
+    const navLink = this.props.loggedIn ? 'Logout' : this.props.signup ? 'Log In' : 'Register';
+    const clickEvent = this.props.loggedIn ? this.props.logout : this.props.register;
     return (
         <div className="nav-container">
           <nav className="row">
@@ -19,7 +24,7 @@ class NavComponent extends React.Component {
             <a
               className="register-button col-2"
               href="#"
-              onClick={this.props.register}
+              onClick={clickEvent}
             >
               {navLink}
             </a>

@@ -4,3 +4,10 @@ export function toggleSignup() {
     payload: null
   };
 }
+
+export function resetSignup() {
+  return {
+    type: 'RESET_SIGNUP',
+    payload: null
+  };
+}

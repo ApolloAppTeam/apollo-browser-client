@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 // test class to make sure react is working
@@ -10,6 +9,10 @@ class LoginComponent extends React.Component {
 
   componentWillMount() {
 
+  }
+
+  componentWillUnmount() {
+    this.props.resetSignupToggle();
   }
 
   // render Home page
@@ -52,6 +55,7 @@ class LoginComponent extends React.Component {
                   className={buttonClass}
                   type="button"
                   id="login-button"
+                  onClick={this.props.login}
                 >
                   {buttonValue}
                 </button>

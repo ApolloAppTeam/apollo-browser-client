@@ -1,16 +1,18 @@
 const initial = {
-  signup: false
+  loggedIn: false,
+  username: ''
 };
 
 export default function reduce(state=initial, action) {
   switch (action.type) {
-    case 'TOGGLE_SIGNUP':
+    case 'SESSION_LOGIN':
       return {
         ...state,
-        signup: !state.signup
+        loggedIn: true,
+        username: action.payload.username
       };
 
-    case 'RESET_SIGNUP':
+    case 'SESSION_LOGOUT':
       return {
         ...initial
       };
