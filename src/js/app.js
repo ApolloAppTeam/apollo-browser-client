@@ -3,7 +3,9 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 
 import AppContainer from './components/AppContainer';
+
 import store from './redux/store';
+const authService = require('./auth/auth.service');
 
 import '../scss/app.scss';
 
@@ -13,7 +15,7 @@ const init = () => {
         <AppContainer />
       </Provider>,
       document.querySelector('#app'), () => {
-        // module initializations if needed
+        authService.init();
       }
     );
 };

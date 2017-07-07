@@ -5,6 +5,7 @@ class LoginComponent extends React.Component {
 
   constructor() {
     super();
+    this.login = this.login.bind(this);
   }
 
   componentWillMount() {
@@ -55,7 +56,7 @@ class LoginComponent extends React.Component {
                   className={buttonClass}
                   type="button"
                   id="login-button"
-                  onClick={this.props.login}
+                  onClick={this.login}
                 >
                   {buttonValue}
                 </button>
@@ -71,6 +72,24 @@ class LoginComponent extends React.Component {
           </div>
         </div>
     );
+  }
+  
+  login() {
+    let formData;
+    if (this.props.signup) {
+      formData = this.createRegisterAttempt();
+    } else {
+      formData = this.createLoginAttempt();
+    }
+    this.props.login();
+  }
+  
+  createRegisterAttempt() {
+    
+  }
+  
+  createLoginAttempt() {
+    
   }
 }
 

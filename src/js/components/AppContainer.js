@@ -26,17 +26,18 @@ class AppContainer extends React.Component {
     super();
     this.attemptLogin = this.attemptLogin.bind(this);
     this.logout = this.logout.bind(this);
-    this.register = this.register.bind(this);
+    this.toggleRegister = this.toggleRegister.bind(this);
     this.resetSignupToggle = this.resetSignupToggle.bind(this);
   }
 
   render() {
+    const loginFunction = this.props.signup ? this.attemptRegister : this.attemptLogin;
     const currentPageComponent = this.props.session.loggedIn ? (
         <DashboardComponent username={this.props.session.username} />
     ) : (
         <LoginComponent
             signup={this.props.signup}
-            login={this.attemptLogin}
+            login={loginFunction}
             resetSignupToggle={this.resetSignupToggle}
         />
     )
@@ -44,7 +45,7 @@ class AppContainer extends React.Component {
       <div className="app">
         <NavComponent
             signup={this.props.signup}
-            register={this.register}
+            register={this.toggleRegister}
             logout={this.logout}
         />
         {currentPageComponent}
@@ -56,15 +57,25 @@ class AppContainer extends React.Component {
    * handle click of register button. dispatches toggle action
    * to visually change state between login and sign up pages
    */
-  register() {
+  toggleRegister() {
     this.props.dispatch(ToggleActions.toggleSignup());
+  }
+  
+  /**
+   * send request to server with form information to 
+   * register new user
+   */
+  attemptRegister() {
+    console.log('attempt register');
   }
 
   /**
    * submit login attempt
    */
   attemptLogin() {
-    this.props.dispatch(SessionActions.login('user'));
+    console.log('attempt login');
+//            this.props.dispatch(SessionActions.login('user'));
+
   }
 
   /**
