@@ -49,7 +49,7 @@ class LoginComponent extends React.Component {
                     className={repeatClass}
                     disabled={repeatDisabled}
                     type="password"
-                    id="login-password-repeat"
+                    id="login-password-confirm"
                     placeholder="Repeat Password"
                 />
                 <button
@@ -81,15 +81,27 @@ class LoginComponent extends React.Component {
     } else {
       formData = this.createLoginAttempt();
     }
-    this.props.login();
+    this.props.login(formData);
   }
   
   createRegisterAttempt() {
-    
+    const username = document.querySelector('#login-username').value;
+    const password = document.querySelector('#login-password').value;
+    const passwordConfirm = document.querySelector('#login-password-confirm').value;
+    return {
+      username,
+      password,
+      passwordConfirm
+    };
   }
   
   createLoginAttempt() {
-    
+    const username = document.querySelector('#login-username').value;
+    const password = document.querySelector('#login-password').value;
+    return {
+      username, 
+      password
+    };
   }
 }
 

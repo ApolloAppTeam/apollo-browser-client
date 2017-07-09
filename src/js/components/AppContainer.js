@@ -5,6 +5,8 @@ import DashboardComponent from './dashboard/DashboardComponent';
 import LoginComponent from './login/LoginComponent';
 import NavComponent from './NavComponent';
 
+const authService = require('../auth/auth.service');
+
 import * as SessionActions from '../redux/actions/sessionActions';
 import * as ToggleActions from '../redux/actions/toggleActions';
 
@@ -31,13 +33,12 @@ class AppContainer extends React.Component {
   }
 
   render() {
-    const loginFunction = this.props.signup ? this.attemptRegister : this.attemptLogin;
     const currentPageComponent = this.props.session.loggedIn ? (
         <DashboardComponent username={this.props.session.username} />
     ) : (
         <LoginComponent
             signup={this.props.signup}
-            login={loginFunction}
+            login={this.attemptLogin}
             resetSignupToggle={this.resetSignupToggle}
         />
     )
@@ -60,22 +61,21 @@ class AppContainer extends React.Component {
   toggleRegister() {
     this.props.dispatch(ToggleActions.toggleSignup());
   }
-  
-  /**
-   * send request to server with form information to 
-   * register new user
-   */
-  attemptRegister() {
-    console.log('attempt register');
-  }
 
   /**
    * submit login attempt
    */
-  attemptLogin() {
-    console.log('attempt login');
-//            this.props.dispatch(SessionActions.login('user'));
-
+  attemptLogin(userData) {
+    const url = this.props.signup ? authService.AUTH_URLS.SIGNUP : authService.AUTH_URLS.SIGNIN;
+    console.log(url);
+    console.log(userData);
+    authService.post(url, userData)
+    .then((res) => {
+      console.log(res);
+    })
+    .catch((err) => {
+      console.info(err);
+    });
   }
 
   /**
