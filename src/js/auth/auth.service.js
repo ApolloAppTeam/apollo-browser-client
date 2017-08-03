@@ -18,7 +18,8 @@ const get = () => {
 const post = (url, params) => {
   return axios({
     method:'post',
-    url:`http://127.0.0.1:3000${url}`
+    url:`http://127.0.0.1:3000${url}`,
+    data: params
   });
 };
 
