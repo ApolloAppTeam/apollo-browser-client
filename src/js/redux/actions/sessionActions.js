@@ -1,15 +1,15 @@
-export function login(user) {
+export const login = (user) => {
   return {
     type: 'SESSION_LOGIN',
     payload: {
       username: user
     }
   };
-}
+};
 
-export function logout() {
+export const logout = () => {
   return {
     type: 'SESSION_LOGOUT',
     payload: null
   };
-}
+};
