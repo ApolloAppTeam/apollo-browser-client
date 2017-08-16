@@ -14,7 +14,7 @@ export default function reduce(state=initial, action) {
 
     case 'SESSION_LOGOUT':
       return {
-        ...initial
+        ...state
       };
   }
 
