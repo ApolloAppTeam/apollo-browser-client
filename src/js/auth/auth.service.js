@@ -1,8 +1,9 @@
 const axios = require('axios');
 
-const authUrl = '127.0.0.1:3000/';
+const authUrl = 'http://127.0.0.1:3000';
 
 const AUTH_URLS = {
+  BASE: 'http://127.0.0.1:3000',
   SIGNUP: '/signup',
   SIGNIN: '/signin'
 };

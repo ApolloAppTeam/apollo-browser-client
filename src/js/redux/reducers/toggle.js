@@ -12,7 +12,7 @@ export default function reduce(state=initial, action) {
 
     case 'RESET_SIGNUP':
       return {
-        ...initial
+        ...state
       };
   }
 

@@ -16,6 +16,7 @@ import * as ToggleActions from '../redux/actions/toggleActions';
 @connect((store) => {
   return {
     signup: store.toggle.signup,
+    loginError: store.session.loginError,
     session: {
       loggedIn: store.session.loggedIn,
       username: store.session.username
@@ -39,6 +40,7 @@ class AppContainer extends React.Component {
         <LoginComponent
             signup={this.props.signup}
             login={this.attemptLogin}
+            error={this.props.loginError}
             resetSignupToggle={this.resetSignupToggle}
         />
     )
@@ -67,15 +69,8 @@ class AppContainer extends React.Component {
    */
   attemptLogin(userData) {
     const url = this.props.signup ? authService.AUTH_URLS.SIGNUP : authService.AUTH_URLS.SIGNIN;
-    console.log(url);
-    console.log(userData);
-    authService.post(url, userData)
-    .then((res) => {
-      console.log(res);
-    })
-    .catch((err) => {
-      console.info(err);
-    });
+    console.log(url, userData);
+    this.props.dispatch(SessionActions.login(url, userData));
   }
 
   /**

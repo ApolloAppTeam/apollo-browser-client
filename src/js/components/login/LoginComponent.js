@@ -22,6 +22,9 @@ class LoginComponent extends React.Component {
     let repeatClass = this.props.signup ? 'login-input show' : 'login-input hide';
     let repeatDisabled = !this.props.signup;
     let buttonValue = this.props.signup ? 'Sign Up' : 'Login';
+    let errorClass = this.props.signup ? 'login-error' : 'login-error slide-up';
+    errorClass += this.props.error ? ' show' : ' hide';
+    let errorMessage = this.props.error ? this.props.error : null;
     return (
         <div className='login-container'>
           <div className="login row">
@@ -60,6 +63,7 @@ class LoginComponent extends React.Component {
                 >
                   {buttonValue}
                 </button>
+                <p className={errorClass}>{errorMessage}</p>
               </form>
             </div>
           </div>
