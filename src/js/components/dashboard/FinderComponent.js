@@ -13,7 +13,6 @@ class FinderComponent extends React.Component {
   componentWillUnmount() {
   }
 
-  // render Home page
   render() {
 
     let searchButton = this.props.showArtist ? <input type='button' value='Search' onClick={this.props.someFunction}/> : null;

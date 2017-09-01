@@ -1,6 +1,6 @@
 import React from 'react';
 
-class ShowComponent extends React.Component {
+class FilterComponent extends React.Component {
 
   constructor() {
     super();
@@ -11,8 +11,10 @@ class ShowComponent extends React.Component {
   }
 
   componentWillUnmount() {
+    
   }
 
+  // render Home page
   render() {
 
     return (
@@ -23,4 +25,4 @@ class ShowComponent extends React.Component {
 
 }
 
-export default ShowComponent;
+export default FilterComponent;

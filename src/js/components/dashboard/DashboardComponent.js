@@ -1,6 +1,5 @@
 import React from 'react';
 
-// test class to make sure react is working
 class DashboardComponent extends React.Component {
 
   constructor() {
@@ -12,9 +11,9 @@ class DashboardComponent extends React.Component {
   }
 
   componentWillUnmount() {
+
   }
 
-  // render Home page
   render() {
     return (
       <div>

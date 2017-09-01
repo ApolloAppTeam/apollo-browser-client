@@ -13,7 +13,6 @@ class ShowsListComponent extends React.Component {
   componentWillUnmount() {
   }
 
-  // render Home page
   render() {
 
     return (
