@@ -21,7 +21,7 @@ class FilterOptionsComponent extends React.Component {
     this.props.filters.forEach((filter) => {
       if (filter.type === 'artist') {
         artistFilters.push(<Filter text={filter.text}/>);
-      } else if (filter.type === 'filter') {
+      } else if (filter.type === 'city') {
         cityFilters.push(<Filter text={filter.text}/>);
       }
     });
