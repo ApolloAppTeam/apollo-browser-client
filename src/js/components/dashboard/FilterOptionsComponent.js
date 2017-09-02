@@ -1,6 +1,8 @@
 import React from 'react';
 import Filter from './Filter.js';
 
+import * as FilterActions from '../../redux/actions/filterActions.js';
+
 class FilterOptionsComponent extends React.Component {
 
   constructor() {
@@ -20,19 +22,19 @@ class FilterOptionsComponent extends React.Component {
     const cityFilters = [];
     this.props.filters.forEach((filter) => {
       if (filter.type === 'artist') {
-        artistFilters.push(<Filter text={filter.text}/>);
+        artistFilters.push(<Filter {...filter}/>);
       } else if (filter.type === 'city') {
-        cityFilters.push(<Filter text={filter.text}/>);
+        cityFilters.push(<Filter {...filter}/>);
       }
     });
 
     return (
       <div>
         <input type='text' />
-        <input type='select'>
-          <option>Artist</option>
-          <option>City</option>
-        </input>
+        <select>
+          <option default value='artist'>Artist</option>
+          <option value='city'>City</option>
+        </select>
         <input type='button' value='Add Filter' onClick={this.addFilter}/>
 
         <span>Artists:</span>
@@ -44,7 +46,9 @@ class FilterOptionsComponent extends React.Component {
   }
 
   addFilter() {
-
+    // Grab text from input field (find by id?)
+    // Grab artist vs city filter
+    // Dispatch filter action
   }
 
 }

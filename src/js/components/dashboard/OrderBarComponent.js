@@ -13,7 +13,7 @@ class OrderBarComponent extends React.Component {
   }
 
   componentWillUnmount() {
-    
+
   }
 
   render() {
