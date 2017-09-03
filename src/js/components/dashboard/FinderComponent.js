@@ -4,6 +4,8 @@ class FinderComponent extends React.Component {
 
   constructor() {
     super();
+
+    this.showArtistFinder = this.showArtistFinder.bind(this);
   }
 
   componentWillMount() {
@@ -32,7 +34,7 @@ class FinderComponent extends React.Component {
     );
   }
 
-  showArtistFinder(e) {
+  showArtistFinder() {
     // Should probably actually come from props, dispatch an action to redux telling it to show the artist finder
   }
 }

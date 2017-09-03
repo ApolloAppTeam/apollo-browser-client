@@ -1,4 +1,6 @@
 const initial = {
+  filterDropdown: false,
+  sortDropdown: false,
   filters: [],
   sort: 0,  // 0 == alphabetical, 1 == distance, 2 == date
   artists: [],
@@ -8,6 +10,16 @@ const initial = {
 
 export default function reduce(state=initial, action) {
   switch (action.type) {
+  case 'TOGGLE_SORT_DROPDOWN':
+    return {
+      ...state,
+      sortDropdown: !(state.sortDropdown),
+    }
+  case 'TOGGLE_FILTER_DROPDOWN':
+    return {
+      ...state,
+      filterDropdown: !(state.filterDropdown),
+    }
   case 'ADD_FILTER':
     return {
       ...state,
@@ -23,7 +35,7 @@ export default function reduce(state=initial, action) {
   case 'SORT_BY':
     return {
       ...state,
-      sort: action.payload.sort,
+      sort: action.payload,
     };
 
   case 'ADD_ARTIST':

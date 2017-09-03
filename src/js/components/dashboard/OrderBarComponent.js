@@ -6,6 +6,9 @@ class OrderBarComponent extends React.Component {
 
   constructor() {
     super();
+
+    this.toggleSortDropdown = this.toggleSortDropdown.bind(this);
+    this.toggleFilterDropdown = this.toggleFilterDropdown.bind(this);
   }
 
   componentWillMount() {
@@ -18,10 +21,13 @@ class OrderBarComponent extends React.Component {
 
   render() {
     let dropdown = null;
-    if (this.props.showSort) {
-      dropdown = <SortOptionsComponent />;
-    } else if (this.props.showFilter) {
-      dropdown = <FilterOptionsComponent />;
+    if (this.props.sortDropdown) {
+      dropdown = <SortOptionsComponent sortBy={this.props.sortBy} />;
+    } else if (this.props.filterDropdown) {
+      dropdown = <FilterOptionsComponent
+                    addFilter={this.props.addFilter}
+                    removeFilter={this.props.removeFilter}
+                  />;
     }
 
     return (
@@ -35,11 +41,11 @@ class OrderBarComponent extends React.Component {
   }
 
   toggleSortDropdown() {
-
+    this.props.toggleSortDropdown();
   }
 
   toggleFilterDropdown() {
-
+    this.props.toggleFilterDropdown();
   }
 
 }

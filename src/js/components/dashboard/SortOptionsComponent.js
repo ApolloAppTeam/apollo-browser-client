@@ -1,7 +1,5 @@
 import React from 'react';
 
-import * as SortActions from '../../redux/actions/sortActions.js';
-
 class SortOptionsComponent extends React.Component {
 
   constructor() {
@@ -23,17 +21,25 @@ class SortOptionsComponent extends React.Component {
 
     return (
       <div>
-        <input type='button' value='A-Z' onClick={this.addSort)} />
-        <input type='button' value='Distance' onClick={this.addSort)} />
-        <input type='button' value='Date' onClick={this.addSort)} />
+        <input type='button' id='alpha_sort' value='A-Z' onClick={this.addSort} />
+        <input type='button' id='dist_sort' value='Distance' onClick={this.addSort} />
+        <input type='button' id='date_sort' value='Date' onClick={this.addSort} />
       </div>
     );
   }
 
   addSort(e) {
-    // Grab id from e
-    // Determine appropriate sort
-    // Dispatch sort action
+    switch(e.target.id) {
+      case 'alpha_sort':
+        this.props.sortBy(0);
+        break;
+      case 'dist_sort':
+        this.props.sortBy(1);
+        break;
+      case 'date_sort':
+        this.props.sortBy(2);
+        break;
+    }
   }
 
 }

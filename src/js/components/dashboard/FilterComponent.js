@@ -5,7 +5,7 @@ class FilterComponent extends React.Component {
   constructor() {
     super();
 
-    this.removeFilter = this.removeFilter.bind(this);
+    this.remove = this.remove.bind(this);
   }
 
   componentWillMount() {
@@ -22,13 +22,17 @@ class FilterComponent extends React.Component {
     return (
       <div>
         <p>{this.props.text}</p>
-        <input type='button' value='X' onClick={this.removeFilter}/>
+        <input type='button'
+          className='remove-filter-button'
+          value='X'
+          onClick={this.remove}
+        />
       </div>
     );
   }
 
-  removeFilter() {
-    this.props.remove(this.props.type, this.props.text);
+  remove() {
+    this.props.removeFilter(this.props.type, this.props.text);
   }
 
 }
