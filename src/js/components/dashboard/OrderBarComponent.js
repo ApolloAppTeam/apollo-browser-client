@@ -25,6 +25,7 @@ class OrderBarComponent extends React.Component {
       dropdown = <SortOptionsComponent sortBy={this.props.sortBy} />;
     } else if (this.props.filterDropdown) {
       dropdown = <FilterOptionsComponent
+                    filters={this.props.filters}
                     addFilter={this.props.addFilter}
                     removeFilter={this.props.removeFilter}
                   />;

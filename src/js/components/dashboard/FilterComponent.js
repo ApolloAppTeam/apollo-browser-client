@@ -32,7 +32,7 @@ class FilterComponent extends React.Component {
   }
 
   remove() {
-    this.props.removeFilter(this.props.type, this.props.text);
+    this.props.removeFilter(this.props.id);
   }
 
 }

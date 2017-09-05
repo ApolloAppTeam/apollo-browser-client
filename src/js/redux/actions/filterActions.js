@@ -1,14 +1,14 @@
-export function addFilter() {
+export function addFilter(filterType, filterText, filterID) {
   return {
     type: 'ADD_FILTER',
-    payload: null,
+    payload: { type: filterType, text: filterText, id: filterID },
   };
 }
 
-export function removeFilter(filterType, filterText) {
+export function removeFilter(filterID) {
   return {
     type: 'REMOVE_FILTER',
-    payload: { type: filterType, text: filterText },
+    payload: { id: filterID },
   };
 }
 

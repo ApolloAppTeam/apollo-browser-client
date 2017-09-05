@@ -6,7 +6,7 @@ class FilterOptionsComponent extends React.Component {
   constructor() {
     super();
 
-    this.addFilter = this.addFilter.bind(this);
+    this.add = this.add.bind(this);
   }
 
   componentWillMount() {
@@ -20,13 +20,17 @@ class FilterOptionsComponent extends React.Component {
   render() {
     const artistFilters = [];
     const cityFilters = [];
-    this.props.filters.forEach((filter) => {
-      if (filter.type === 'artist') {
-        artistFilters.push(<FilterComponent {...filter} removeFilter={this.props.removeFilter} />);
-      } else if (filter.type === 'city') {
-        cityFilters.push(<FilterComponent {...filter} removeFilter={this.props.removeFilter} />);
-      }
-    });
+    const filters = this.props.filters;
+
+    if (filters !== undefined && filters.length > 0) {
+      filters.forEach((filter) => {
+        if (filter.type === 'artist') {
+          artistFilters.push(<FilterComponent {...filter} key={filter.id} removeFilter={this.props.removeFilter} />);
+        } else if (filter.type === 'city') {
+          cityFilters.push(<FilterComponent {...filter} key={filter.id} removeFilter={this.props.removeFilter} />);
+        }
+      });
+    }
 
     return (
       <div>
@@ -48,7 +52,8 @@ class FilterOptionsComponent extends React.Component {
   add() {
     const filterType = document.getElementById('filter-type-input').value;
     const filterText = document.getElementById('filter-text-input').value;
-    this.props.addFilter(filterType, filterText);
+    const filterID = filterType + filterText + Math.random();
+    this.props.addFilter(filterType, filterText, filterID);
   }
 
 }

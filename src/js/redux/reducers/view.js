@@ -14,12 +14,14 @@ export default function reduce(state=initial, action) {
     return {
       ...state,
       sortDropdown: !(state.sortDropdown),
-    }
+      filterDropdown: false,
+    };
   case 'TOGGLE_FILTER_DROPDOWN':
     return {
       ...state,
+      sortDropdown: false,
       filterDropdown: !(state.filterDropdown),
-    }
+    };
   case 'ADD_FILTER':
     return {
       ...state,
@@ -29,7 +31,7 @@ export default function reduce(state=initial, action) {
     return {
       ...state,
       filters: state.filters.filter((filter) => {
-        filter !== action.payload;
+        return filter.id !== action.payload.id;
       }),
     };
   case 'SORT_BY':
