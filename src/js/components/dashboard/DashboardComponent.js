@@ -15,6 +15,7 @@ import * as FilterActions from '../../redux/actions/filterActions.js';
     filterDropdown: store.view.filterDropdown,
     shows: store.view.shows,
     filters: store.view.filters,
+    sort: store.view.sort,
   }
 })
 class DashboardComponent extends React.Component {
@@ -51,7 +52,11 @@ class DashboardComponent extends React.Component {
           toggleSortDropdown={this.toggleSortDropdown}
           toggleFilterDropdown={this.toggleFilterDropdown}
         />
-        <ShowsListComponent shows={this.props.shows} filters={this.props.filters}/>
+        <ShowsListComponent
+          shows={this.props.shows}
+          filters={this.props.filters}
+          sort={this.props.sort}
+        />
         <MapComponent />
         <div className='footer'>DropYourJoust &copy;2017</div>
       </div>

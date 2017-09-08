@@ -14,7 +14,7 @@ const initial = {
     },
     {
       artist: 'Bloat Hand',
-      city: 'Rochester, NY',
+      city: 'Some Field, NY',
       venue: 'The Bug Jar',
       date: '4/13/18',
     },
