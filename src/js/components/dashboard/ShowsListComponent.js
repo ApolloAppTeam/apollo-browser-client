@@ -18,7 +18,7 @@ class ShowsListComponent extends React.Component {
   render() {
 
     const shows = this.props.shows.map((show) => {
-      return <ShowComponent {...show} />;
+      return <ShowComponent {...show} key={`${show.artist}${show.venue}`} />;
     });
 
     // if shows == null, display image thing

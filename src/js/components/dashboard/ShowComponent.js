@@ -18,10 +18,14 @@ class ShowComponent extends React.Component {
   render() {
     return (
       <div className='show-wrapper' onClick={this.focus}>
-        <p className='show-artist'>{this.props.artist}</p>
-        <p className='show-city'>{this.props.city}</p>
-        <p className='show-venue'>{this.props.venue}</p>
-        <p className='show-date'>{this.props.date}</p>
+        <div className='show-wrapper-column'>
+          <p className='show-artist'>{this.props.artist}</p>
+          <p className='show-city'>{this.props.city}</p>
+        </div>
+        <div className='show-wrapper-column'>
+          <p className='show-venue'>{this.props.venue}</p>
+          <p className='show-date'>{this.props.date}</p>
+        </div>
       </div>
     );
   }

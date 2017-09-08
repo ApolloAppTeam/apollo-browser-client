@@ -38,9 +38,37 @@ $footer-height: 60px;
 .show-wrapper {
 	margin-top: 10px;
 	margin-left: 15px;
-	width: 300px;
+	width: 80%;
 	min-height: 65px;
 	background-color: white;
+	display: flex;
+}
+
+.show-wrapper-column {
+	display: flex;
+	flex-direction: column;
+	width: 50%;
+	justify-content: center;
+
+	p {
+		margin-left: 20px;
+	}
+}
+
+.show-artist {
+	color: $primary-dark-text;
+}
+
+.show-city {
+	color: $secondary-dark-text;
+}
+
+.show-venue {
+	color: $primary-dark-text;
+}
+
+.show-date {
+	color: $secondary-dark-text;
 }
 
 .footer {
