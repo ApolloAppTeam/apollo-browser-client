@@ -5,7 +5,20 @@ const initial = {
   sort: 0,  // 0 == alphabetical, 1 == distance, 2 == date
   artists: [],
   cities: [],
-  shows: []
+  shows: [
+    {
+      artist: 'Vomit Salt',
+      city: 'Rochester, NY',
+      venue: 'Biege Prison',
+      date: '4/11/18',
+    },
+    {
+      artist: 'Bloat Hand',
+      city: 'Rochester, NY',
+      venue: 'The Bug Jar',
+      date: '4/13/18',
+    },
+  ],
 };
 
 export default function reduce(state=initial, action) {

@@ -32,9 +32,9 @@ class OrderBarComponent extends React.Component {
     }
 
     return (
-      <div>
-        <input type='button' value='Sort' onClick={this.toggleSortDropdown} />
-        <input type='button' value='Filter' onClick={this.toggleFilterDropdown} />
+      <div className='sort-filter-bar'>
+        <input type='button' className='reveal-button' value='Sort' onClick={this.toggleSortDropdown} />
+        <input type='button' className='reveal-button' value='Filter' onClick={this.toggleFilterDropdown} />
 
         {dropdown}
       </div>

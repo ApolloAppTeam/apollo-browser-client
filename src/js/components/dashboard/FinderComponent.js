@@ -22,7 +22,7 @@ class FinderComponent extends React.Component {
     let addCityButton = !(this.props.showArtist) ? <input type='button' value='Add City' onClick={this.props.someFunction}/> : null;
 
     return (
-      <div>
+      <div className='finder-wrapper'>
         <input type='button' value='Artists' onClick={this.showArtistFinder} />
         <input type='button' value='Cities' />
         

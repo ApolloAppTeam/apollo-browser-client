@@ -39,8 +39,7 @@ class DashboardComponent extends React.Component {
 
   render() {
     return (
-      <div>
-        <h1>Hello, {this.props.username}</h1>
+      <div className='dashboard'>
         <FinderComponent />
         <OrderBarComponent
           sortDropdown={this.props.sortDropdown}
@@ -54,7 +53,7 @@ class DashboardComponent extends React.Component {
         />
         <ShowsListComponent shows={this.props.shows}/>
         <MapComponent />
-        <div id='footer'>DropYourJoust &copy;2017</div>
+        <div className='footer'>DropYourJoust &copy;2017</div>
       </div>
     );
   }

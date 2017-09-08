@@ -1,0 +1,59 @@
+$footer-height: 60px;
+
+.dashboard {
+	background-color: $med-gray;
+	width: 50%;
+	height: calc(100vh - #{$nav-height} - #{$footer-height});
+	overflow: none;
+}
+
+.finder-wrapper {
+	height: 160px;
+	background-color: white;
+
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+}
+
+.sort-filter-bar {
+	margin-top: 15px;
+	margin-bottom: 15px;
+
+	input {
+		margin-top: 15px;
+	}
+
+	.reveal-button {
+		margin-top: 0px;
+		margin-left: 20px;
+	}
+}
+
+.shows-list-header {
+	border-top: 1px solid $dark-gray;
+	padding: 10px;
+}
+
+.show-wrapper {
+	margin-top: 10px;
+	margin-left: 15px;
+	width: 300px;
+	min-height: 65px;
+	background-color: white;
+}
+
+.footer {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+
+	height: $footer-height;
+	width: 100%;
+
+	text-align: center;
+	line-height: $footer-height;
+
+	background-color: $accent-color;
+	color: $primary-dark-text;
+}

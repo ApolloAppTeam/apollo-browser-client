@@ -16,14 +16,12 @@ class ShowComponent extends React.Component {
   }
 
   render() {
-    const show = this.props.show;
-
     return (
       <div className='show-wrapper' onClick={this.focus}>
-        <p className='show-artist'>{show.artist}</p>
-        <p className='show-city'>{show.city}</p>
-        <p className='show-venue'>{show.venue}</p>
-        <p className='show-date'>{show.date}</p>
+        <p className='show-artist'>{this.props.artist}</p>
+        <p className='show-city'>{this.props.city}</p>
+        <p className='show-venue'>{this.props.venue}</p>
+        <p className='show-date'>{this.props.date}</p>
       </div>
     );
   }

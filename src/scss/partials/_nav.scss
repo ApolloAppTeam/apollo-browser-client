@@ -1,3 +1,5 @@
+$nav-height: 70px;
+
 .logo {
   color: $accent-color;
   padding: 0;
@@ -9,7 +11,7 @@
   }
 }
 nav {
-  height: 70px;
+  height: $nav-height;
   line-height: 70px;
 }
 .nav-container {
