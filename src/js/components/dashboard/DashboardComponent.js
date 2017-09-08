@@ -51,7 +51,7 @@ class DashboardComponent extends React.Component {
           toggleSortDropdown={this.toggleSortDropdown}
           toggleFilterDropdown={this.toggleFilterDropdown}
         />
-        <ShowsListComponent shows={this.props.shows}/>
+        <ShowsListComponent shows={this.props.shows} filters={this.props.filters}/>
         <MapComponent />
         <div className='footer'>DropYourJoust &copy;2017</div>
       </div>

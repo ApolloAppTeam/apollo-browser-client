@@ -17,7 +17,21 @@ class ShowsListComponent extends React.Component {
 
   render() {
 
-    const shows = this.props.shows.map((show) => {
+    let viewableShows = this.props.shows;
+    if (this.props.filters && this.props.filters.length > 0) {
+      viewableShows = viewableShows.filter((show) => {
+        let passesFilter = false;
+        this.props.filters.forEach((filter) => {
+          if ((filter.type === 'artist' && filter.text === show.artist)
+              || (filter.type === 'city' && filter.text === show.city)) {
+            passesFilter = true;
+          }
+        });
+        return passesFilter;
+      });
+    }
+
+    const shows = viewableShows.map((show) => {
       return <ShowComponent {...show} key={`${show.artist}${show.venue}`} />;
     });
 
